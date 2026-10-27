@@ -1,7 +1,7 @@
 {
-  "name": "알짜배기여",
-  "bio": "세계최강 꿀팁&트랜드집합",
-  "avatar": "/avatar-dummy.svg",
+  "name": "유관복",
+  "bio": "풀스택 개발자 | 요즘에는 AI 개발에 관심이 많아요",
+  "avatar": "https://placehold.co/256x256/orange/white",
   "links": [
     { "id": "github", "title": "GitHub", "url": "https://github.com/your-id", "clicks": 0 },
     { "id": "linkedin", "title": "LinkedIn", "url": "https://www.linkedin.com/in/your-id", "clicks": 0 },
