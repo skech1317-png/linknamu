@@ -1,44 +1,97 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f6f4ef;
+  /* 배경: 크림 → 연한 살구 그라데이션 + 은은한 빛 번짐 */
+  --bg-from: #fdf8f1;
+  --bg-to: #fbe4d3;
+  --bg-glow-1: rgb(255 214 180 / 0.55);
+  --bg-glow-2: rgb(255 240 214 / 0.8);
+
   --surface: #ffffff;
-  --text: #1f1d1a;
-  --muted: #6b665e;
-  --line: #e4dfd5;
-  --accent: #2f6b4f;
-  --accent-soft: #e3efe8;
+  --text: #2b231e;
+  --muted: #8a796c;
+  --line: #ecdccf;
+  --accent: #c0673f;
+  --accent-soft: #f8e3d6;
+
+  /* 글래스 카드 */
+  --glass: rgb(255 255 255 / 0.42);
+  --glass-hover: rgb(255 255 255 / 0.6);
+  --glass-border: rgb(255 255 255 / 0.75);
+  --shadow: rgb(150 90 50 / 0.1);
+  --shadow-strong: rgb(150 90 50 / 0.18);
+  --ring: #ffffff;
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #161714;
-    --surface: #212320;
-    --text: #ecebe6;
-    --muted: #a19e95;
-    --line: #34362f;
-    --accent: #7cc4a0;
-    --accent-soft: #263a30;
+    --bg-from: #1a1512;
+    --bg-to: #2a1d16;
+    --bg-glow-1: rgb(200 110 60 / 0.18);
+    --bg-glow-2: rgb(255 200 150 / 0.06);
+
+    --surface: #241d19;
+    --text: #f3ebe4;
+    --muted: #b3a294;
+    --line: #3a2f28;
+    --accent: #f0a77c;
+    --accent-soft: #3a2a21;
+
+    --glass: rgb(255 255 255 / 0.06);
+    --glass-hover: rgb(255 255 255 / 0.1);
+    --glass-border: rgb(255 255 255 / 0.12);
+    --shadow: rgb(0 0 0 / 0.25);
+    --shadow-strong: rgb(0 0 0 / 0.35);
+    --ring: rgb(255 255 255 / 0.14);
     color-scheme: dark;
   }
 }
 
-/* Tailwind 클래스로 쓰기: bg-surface, text-muted, border-line, text-accent, bg-accent-soft ... */
+/* Tailwind 클래스로 쓰기: bg-surface, text-muted, border-line, text-accent, bg-glass ... */
 @theme inline {
-  --color-bg: var(--bg);
   --color-surface: var(--surface);
   --color-text: var(--text);
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
-  --font-sans: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --color-glass: var(--glass);
+  --color-glass-hover: var(--glass-hover);
+  --color-glass-border: var(--glass-border);
+  --color-ring: var(--ring);
+  --font-sans: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Malgun Gothic", sans-serif;
 }
 
 body {
-  background: var(--bg);
+  background: var(--bg-from);
   color: var(--text);
   font-family: var(--font-sans);
-  line-height: 1.5;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+}
+
+/* 스크롤해도 배경이 고정되도록 별도 층으로 깐다 (iOS는 background-attachment: fixed 미지원) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(60% 45% at 15% 10%, var(--bg-glow-2), transparent 70%),
+    radial-gradient(55% 40% at 90% 85%, var(--bg-glow-1), transparent 70%),
+    linear-gradient(165deg, var(--bg-from) 0%, var(--bg-to) 100%);
+}
+
+/* 카드·사진 그림자: 따뜻한 색으로 넓고 옅게 */
+@utility shadow-soft {
+  box-shadow:
+    0 1px 2px var(--shadow),
+    0 8px 24px -6px var(--shadow);
+}
+@utility shadow-lift {
+  box-shadow:
+    0 2px 4px var(--shadow),
+    0 14px 32px -8px var(--shadow-strong);
 }
