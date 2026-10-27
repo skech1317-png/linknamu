@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="더미 프로필 사진">
+  <!-- 보여 주기용 더미 프로필 사진. 진짜 사진으로 바꾸면 이 파일은 지워도 된다 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#cfe6d8"/>
+      <stop offset="1" stop-color="#8fc2a5"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#bg)"/>
+  <circle cx="100" cy="80" r="36" fill="#2f6b4f" fill-opacity=".85"/>
+  <path d="M30 200c6-44 36-68 70-68s64 24 70 68z" fill="#2f6b4f" fill-opacity=".85"/>
+</svg>

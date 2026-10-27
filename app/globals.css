@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f6f4ef;
+  --surface: #ffffff;
+  --text: #1f1d1a;
+  --muted: #6b665e;
+  --line: #e4dfd5;
+  --accent: #2f6b4f;
+  --accent-soft: #e3efe8;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161714;
+    --surface: #212320;
+    --text: #ecebe6;
+    --muted: #a19e95;
+    --line: #34362f;
+    --accent: #7cc4a0;
+    --accent-soft: #263a30;
+    color-scheme: dark;
+  }
+}
+
+/* Tailwind 클래스로 쓰기: bg-surface, text-muted, border-line, text-accent, bg-accent-soft ... */
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+}

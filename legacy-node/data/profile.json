@@ -1,0 +1,10 @@
+{
+  "name": "알짜배기여",
+  "bio": "세계최강 꿀팁&트랜드집합",
+  "avatar": "",
+  "links": [
+    { "id": "insta", "title": "인스타그램", "url": "instagram.com", "clicks": 0 },
+    { "id": "youtube", "title": "유튜브", "url": "https://youtube.com", "clicks": 0 },
+    { "id": "blog", "title": "블로그", "url": "https://blog.naver.com", "clicks": 0 }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "name": "linknamu",
+  "version": "0.1.0",
+  "description": "Linktree처럼 내 모든 링크를 한 페이지에 모아 하나의 URL로 공유할 수 있는 link in bio 서비스",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
