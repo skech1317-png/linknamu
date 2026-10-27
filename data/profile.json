@@ -8,14 +8,14 @@
       "title": "깃허브",
       "emoji": "🐙",
       "url": "https://github.com/skech1317-png",
-      "clicks": 1
+      "clicks": 2
     },
     {
-      "id": "email",
-      "title": "이메일",
+      "id": "instagram",
+      "title": "인스타",
       "emoji": "📮",
-      "url": "mailto:skech1317@naver.com",
-      "clicks": 1
+      "url": "https://www.instagram.com/bogbog_luck/",
+      "clicks": 0
     },
     {
       "id": "blog",
