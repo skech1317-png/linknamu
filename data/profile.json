@@ -3,8 +3,26 @@
   "bio": "풀스택 개발자 | 요즘에는 AI 개발에 관심이 많아요",
   "avatar": "/알짜프로필.png",
   "links": [
-    { "id": "github", "title": "깃허브", "emoji": "🐙", "url": "https://github.com/skech1317", "clicks": 0 },
-    { "id": "email", "title": "이메일", "emoji": "📮", "url": "mailto:skech1317@naver.com", "clicks": 0 },
-    { "id": "blog", "title": "블로그", "emoji": "✍️", "url": "https://m.blog.naver.com/skech1317", "clicks": 0 }
+    {
+      "id": "github",
+      "title": "깃허브",
+      "emoji": "🐙",
+      "url": "https://github.com/skech1317-png",
+      "clicks": 1
+    },
+    {
+      "id": "email",
+      "title": "이메일",
+      "emoji": "📮",
+      "url": "mailto:skech1317@naver.com",
+      "clicks": 1
+    },
+    {
+      "id": "blog",
+      "title": "블로그",
+      "emoji": "✍️",
+      "url": "https://m.blog.naver.com/skech1317",
+      "clicks": 1
+    }
   ]
 }
