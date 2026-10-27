@@ -46,7 +46,7 @@
 ## 규칙
 
 - 사용자에게 보이는 문구는 한국어 해요체로 쓴다. (예: "링크를 추가했어요")
-- 링크 URL은 `normalizeUrl()`을 거쳐 http/https만 허용한다.
+- 링크 URL은 `normalizeUrl()`을 거쳐 http/https/mailto만 허용한다.
 - 이름 최대 40자(`NAME_MAX`), 소개 최대 120자(`BIO_MAX`).
 - 색상은 `globals.css`의 토큰을 Tailwind 클래스로 쓴다 (`bg-surface`, `text-muted`, `border-line`, `text-accent`, `bg-accent-soft`). 새 색은 `:root`와 다크 모드 양쪽에 정의한다.
 

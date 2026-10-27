@@ -38,13 +38,19 @@ async function ProfileView() {
     <>
       <header className="mb-8 text-center">
         <div
-          className="mx-auto mb-4 grid size-28 place-items-center overflow-hidden rounded-full border border-line bg-accent-soft text-[40px] font-bold text-accent sm:size-32 sm:text-[46px]"
+          className="mx-auto mb-4 grid size-[150px] place-items-center overflow-hidden rounded-full border border-line bg-accent-soft text-[52px] font-bold text-accent"
           aria-hidden={profile.avatar ? undefined : true}
         >
           {profile.avatar ? (
             // 사용자가 넣은 임의 경로/주소를 그대로 쓰기 위해 일반 img 사용
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={profile.avatar} alt={`${name} 프로필 사진`} className="size-full object-cover" />
+            <img
+              src={profile.avatar}
+              alt={`${name} 프로필 사진`}
+              width={150}
+              height={150}
+              className="size-full object-cover"
+            />
           ) : (
             name.trim().charAt(0) || "?"
           )}
@@ -61,7 +67,10 @@ async function ProfileView() {
               href={`/go/${encodeURIComponent(link.id)}`}
               className="flex flex-col items-center rounded-2xl border border-line bg-surface px-5 py-4 text-center transition hover:-translate-y-0.5 hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
-              <span className="max-w-full truncate font-semibold">{link.title}</span>
+              <span className="max-w-full truncate font-semibold">
+                {link.emoji && <span aria-hidden="true" className="mr-1.5">{link.emoji}</span>}
+                {link.title}
+              </span>
               <span className="max-w-full truncate text-[13px] text-muted">{link.domain}</span>
             </a>
           ))
@@ -77,7 +86,7 @@ function ProfileSkeleton() {
   return (
     <div aria-busy="true" aria-label="불러오는 중" className="animate-pulse">
       <div className="mb-8 flex flex-col items-center">
-        <div className="mb-4 size-28 rounded-full bg-line sm:size-32" />
+        <div className="mb-4 size-[150px] rounded-full bg-line" />
         <div className="h-6 w-32 rounded bg-line" />
         <div className="mt-2.5 h-4 w-48 rounded bg-line" />
       </div>

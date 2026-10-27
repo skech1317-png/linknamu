@@ -6,6 +6,7 @@ export type Link = {
   id: string;
   title: string;
   url: string;
+  emoji?: string;
   clicks: number;
 };
 
@@ -46,22 +47,26 @@ export function addClick(id: string): Promise<string | null> {
   return task;
 }
 
-// 'instagram.com/abc'처럼 적어도 https://를 붙이고, http/https가 아니면 null
+// 'instagram.com/abc'처럼 적어도 https://를 붙이고, http/https/mailto가 아니면 null
 export function normalizeUrl(raw: string): string | null {
   let url = String(raw || "").trim();
   if (!url) return null;
   if (!/^[a-z][a-z0-9+.-]*:/i.test(url)) url = "https://" + url;
   try {
     const u = new URL(url);
+    if (u.protocol === "mailto:") return u.pathname.includes("@") ? u.href : null;
     return u.protocol === "http:" || u.protocol === "https:" ? u.href : null;
   } catch {
     return null;
   }
 }
 
+// 카드 아래 작은 글씨: 웹 주소는 도메인, 메일은 주소
 export function domainOf(url: string): string {
   try {
-    return new URL(url).hostname.replace(/^www\./, "");
+    const u = new URL(url);
+    if (u.protocol === "mailto:") return decodeURIComponent(u.pathname);
+    return u.hostname.replace(/^www\./, "");
   } catch {
     return "";
   }
