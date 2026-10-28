@@ -38,9 +38,14 @@ export function addClick(id: string): Promise<string | null> {
 
     link.clicks = (link.clicks || 0) + 1;
     // 임시 파일에 쓴 뒤 바꿔치기해서, 저장 도중 꺼져도 파일이 깨지지 않게 한다
-    const tmp = DATA_FILE + ".tmp";
-    await writeFile(tmp, JSON.stringify(profile, null, 2) + "\n");
-    await rename(tmp, DATA_FILE);
+    // Vercel처럼 파일을 쓸 수 없는 환경에서는 저장만 건너뛰고 이동은 그대로 한다
+    try {
+      const tmp = DATA_FILE + ".tmp";
+      await writeFile(tmp, JSON.stringify(profile, null, 2) + "\n");
+      await rename(tmp, DATA_FILE);
+    } catch (err) {
+      console.warn("클릭 수를 저장하지 못했어요:", (err as Error).message);
+    }
     return url;
   });
   queue = task.catch(() => {});
