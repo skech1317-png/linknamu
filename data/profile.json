@@ -15,14 +15,14 @@
       "title": "인스타",
       "emoji": "📮",
       "url": "https://www.instagram.com/bogbog_luck/",
-      "clicks": 0
+      "clicks": 1
     },
     {
       "id": "blog",
       "title": "블로그",
       "emoji": "✍️",
       "url": "https://m.blog.naver.com/skech1317",
-      "clicks": 1
+      "clicks": 2
     }
   ]
 }
